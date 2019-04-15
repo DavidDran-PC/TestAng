@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    font-family: sans-serif;
+    background-color: darkslategray;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: darkslategray;
+    color: white;
+    margin: 0px;
+    padding: 0;
+    width: 100%;
+}
+div {
+    margin: 10px;
+    text-align: center;
+}
+
+/* Style buttons */
+.newbtn {
+    background-color: DodgerBlue;
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    color: white; /* White text */
+    padding: 5px 10px; /* Some padding */
+    font-size: 15px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin: 10px 10px 0px 10px;
+    width:90%;
+}
+
+/* Darker background on mouse-over */
+.newbtn:hover {
+    background-color: RoyalBlue;
+}
+
+.newbtnlast {
+    background-color: DodgerBlue; 
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    color: white; /* White text */
+    padding: 5px 10px; /* Some padding */
+    font-size: 15px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin: 10px 10px 10px 10px;
+    width:90%;
+}
+
+/* Darker background on mouse-over */
+.newbtnlast:hover {
+    background-color: RoyalBlue;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Style buttons */
+.btn {
+    background-color: DodgerBlue; 
+    color: white; /* White text */
+    padding: 5px 10px; /* Some padding */
+    font-size: 15px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin-right: 3px;
+    min-width: 80px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+    background-color: RoyalBlue;
+}
+
+.success {
+    color: lightblue; /* White text */
+}
+.error {
+    color: red; /* White text */
+}

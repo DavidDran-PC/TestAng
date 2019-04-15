@@ -1,0 +1,51 @@
+<h2 class="panel-heading">
+  {{pageTitle}}
+</h2>
+<div>
+  <div>
+    <div class="success">{{successMessage}}</div>
+    <div class="error">{{errorMessage}}</div>
+    <div class="button-container">
+      <div class="goback-container">
+        <button class="btn goback" (click)="goToAdd()">Add A Purchase</button>
+      </div>
+    </div>
+
+    <div class="filter">
+      <label>Filter by Stock Id:</label>
+      <input (change)="ngOnInit()"[(ngModel)]='filtervalue'>
+    </div>
+    <div class='table-responsive'>
+      <table class='table' *ngIf='accounts && accounts.length'>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>User Id</th>
+            <th>Stock Id</th>
+            <th>Purchase Amount</th>
+            <th>Date Time</th>
+          </tr>
+        </thead>
+        <tr *ngFor='let account of accounts'>
+          <td style="width: 7% ; min-width: 80px">
+            <button class="btn" (click)="detailClick($event, account._id)"><i class="fa fa-bars"></i></button>
+            <button class="btn" (click)="deleteClick($event, account)"><i class="fa fa-trash"></i></button>
+          </td>
+          <td>{{ account.userId }}</td>
+          <td>{{ account.stockId }}</td>
+          <td>{{ account.purchaseAmount | currency }}</td>
+          <td>{{ account.datetime }}</td>
+        </tr>
+      <tbody>
+      </tbody>
+    </table>
+
+    </div>
+    <div class="button-container">
+      <div class="goback-container">
+        <button class="btn goback" (click)="goBack()">Back to Welcome Page</button>
+      </div>
+    </div>
+</div>
+
+</div>

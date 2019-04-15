@@ -1,0 +1,92 @@
+
+tbody{
+    background: black;
+}
+
+.table-responsive {
+    display:inline-flex;
+}
+
+thead {
+    background: blue;
+    /*background: royalblue;*/
+}
+.table thead th {
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+table thead th {
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+}
+
+thead th {
+    color: lightgray;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0px !important;
+    margin: 0px;
+    text-align: center;
+    vertical-align: middle !important
+}
+
+tr {
+    border: none;
+}
+
+td {
+    color: lightgray;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.table td {
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.filter {
+    width :100%;
+    display: inline-block;
+    padding: 12px 20px 12px 20px;
+    text-align: center;
+}
+
+.filter label {
+    padding-right:10px;
+}
+
+.filter input {
+    width: 5%;
+}
+
+ /* Style buttons */
+table .btn {
+    color: white; /* White text */
+    padding: 5px 10px; /* Some padding */
+    font-size: 15px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin-right: 3px;
+    width:12%;
+    min-width: 35px;
+}
+
+/* Darker background on mouse-over */
+table .btn:hover {
+    color: #212529 !important;
+}
+
+.row {
+    margin: 0px;
+}
+
+

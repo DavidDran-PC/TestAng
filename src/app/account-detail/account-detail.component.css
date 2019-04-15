@@ -1,0 +1,44 @@
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-item{
+    display: flex;
+    flex-direction: row;
+}
+label {
+    width: 70%;
+    text-align: left;
+    padding-right: 10px;
+}
+
+.acct-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttonContainer{
+    margin-left: 80px;
+    /*margin-right: 40px;*/
+    text-align: center;
+    width: 80%;
+}
+
+.gobackcontainer {
+    padding: 10px
+}
+.goback{
+    min-width: 80px;
+}
+.left{
+    float: right
+}
+span {
+    width:40%;
+}
+
+input {
+    width:40%;
+}
