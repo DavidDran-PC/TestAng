@@ -22,7 +22,6 @@ export class AccountDetailComponent implements OnInit {
         shares: 0,
         datetime: ''
     };
-    currentPrice: string;
     errorMessage: string;
     successMessage: string;
 
@@ -58,7 +57,7 @@ export class AccountDetailComponent implements OnInit {
                 this.account.shares = +(this.account.purchaseAmount/this.account.price).toFixed(3);
             },
             error => {
-                this.currentPrice = "0.00";
+                this.account.price = 0;
                 this.errorMessage = <any>error;
                 this.successMessage = "";
             });
