@@ -8,6 +8,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AccountListComponent } from './account-list/account-list.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountAddComponent } from './account-add/account-add.component';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { AccountAddComponent } from './account-add/account-add.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

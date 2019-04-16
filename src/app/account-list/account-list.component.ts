@@ -18,7 +18,7 @@ export class AccountListComponent implements OnInit {
   errorMessage: string;
   filtervalue: string = 'All';
 
-  filteredAccountes: IAccount[];
+  filteredAccounts: IAccount[];
   accounts: IAccount[];
 
   constructor(private accountService: AccountService, private stockService: StockService, private router: Router) {
@@ -72,7 +72,7 @@ export class AccountListComponent implements OnInit {
       },
       error => {this.errorMessage = <any>error; this.successMessage = "";}
     );
-    this.filteredAccountes = this.accounts;
+    this.filteredAccounts = this.accounts;
   }
 
   goBack(): void {

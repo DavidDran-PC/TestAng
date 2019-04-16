@@ -3,6 +3,7 @@ import { IAccount } from './account';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { map } from 'rxjs/internal/operators/map';
 
 @Injectable({
     providedIn: 'root'
@@ -39,9 +40,15 @@ export class AccountService {
     addAccount(account) : Observable<IAccount>
     {
         console.log('in addAccount AccountService' );
-        account._id = null;
-        return this.http.post<IAccount>( this.accountUrl, account).pipe( tap( data => console.log('All: ' + JSON.stringify(data))), 
-        catchError(this.handleError));
+        delete account._id;
+        return this.http.post<IAccount>( this.accountUrl, account)
+        .pipe( 
+            tap( 
+                data => {
+                    console.log('addded: data=' + JSON.stringify(data));
+                }),
+                catchError(this.handleError)
+        )
     }
 
     changeAccount(account) : Observable<IAccount>

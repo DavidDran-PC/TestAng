@@ -23,6 +23,8 @@
             <th>User Id</th>
             <th>Stock Id</th>
             <th>Purchase Amount</th>
+            <th>Price</th>
+            <th>Shares</th>
             <th>Date Time</th>
           </tr>
         </thead>
@@ -34,6 +36,8 @@
           <td>{{ account.userId }}</td>
           <td>{{ account.stockId }}</td>
           <td>{{ account.purchaseAmount | currency }}</td>
+          <td>{{ account.price | currency }}</td>
+          <td>{{ account.shares | number }}</td>
           <td>{{ account.datetime }}</td>
         </tr>
       <tbody>

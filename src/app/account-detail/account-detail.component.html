@@ -5,6 +5,8 @@
   <div class="success">{{successMessage}}</div>
   <div class="error">{{errorMessage}}</div>
   <div class="acct-container">
+    <p>Normally on historical transactions I wouldn't want changes or deletes allowed on the front end
+        like this unless this was a super user. I just wanted to show it.</p>
     <div class="input-container">
       <div class="input-item">
         <label>User ID</label>
@@ -15,12 +17,16 @@
         <input (change)="getPrice()" [(ngModel)]='account.stockId'>
       </div>
       <div class="input-item">
-        <label>Purchase Amount</label>
-        <input [(ngModel)]='account.purchaseAmount'>
+        <label>Purchase Amount (USD)</label>
+        <input (change)="getPrice()" [(ngModel)]='account.purchaseAmount'>
       </div>
       <div class="input-item">
         <label>Current Stock Price</label>
-        <span>{{currentPrice | currency}}</span>
+        <span>{{this.account.price | currency}}</span>
+      </div>
+      <div class="input-item">
+        <label>Shares</label>
+        <span>{{ this.account.shares}}</span>
       </div>
     </div>
     <div class="button-container">
