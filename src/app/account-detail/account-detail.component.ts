@@ -17,7 +17,9 @@ export class AccountDetailComponent implements OnInit {
         _id: '',
         userId: '',
         stockId: '',
-        purchaseAmount: '',
+        purchaseAmount: 0,
+        price: 0,
+        shares: 0,
         datetime: ''
     };
     currentPrice: string;
@@ -52,7 +54,8 @@ export class AccountDetailComponent implements OnInit {
         this.stockService.getPrice(this.account.stockId).subscribe( 
             price => {
                 console.log("in price");
-                this.currentPrice=price
+                this.account.price=Number(price);
+                this.account.shares = +(this.account.purchaseAmount/this.account.price).toFixed(3);
             },
             error => {
                 this.currentPrice = "0.00";
@@ -68,7 +71,7 @@ export class AccountDetailComponent implements OnInit {
         this.stockService.getPrice(this.account.stockId).subscribe( 
             price => {
                 console.log("in price");
-                this.account.purchaseAmount=price
+                this.account.price=Number(price);
                 this.accountService.addAccount(this.account).subscribe(
                     account => {
                         this.account = account;

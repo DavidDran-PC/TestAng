@@ -17,11 +17,18 @@
       </div>
       <div class="input-item">
           <label>Purchase Amount (USD)</label>
-          <input [(ngModel)]="account.purchaseAmount">
+          <input (change)="getPrice()"  
+          [ngModel]="account.purchaseAmount | currency:'USD':'symbol':'1.2'"
+          [ngModelOptions]="{updateOn:'blur'}"
+          (ngModelChange)="account.purchaseAmount=$event"/>
       </div>
       <div class="input-item">
         <label>Current Stock Price</label>
-        <span>{{currentPrice | currency}}</span>
+        <span>{{this.account.price | currency}}</span>
+      </div>
+      <div class="input-item">
+        <label>Shares</label>
+        <span>{{ this.account.shares}}</span>
       </div>
   </div>
   <div class="buttonContainer">

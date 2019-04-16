@@ -4,6 +4,7 @@ import { AccountService } from '../account/account.service';
 import { StockService } from '../stock/stock.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
     selector: 'pm-account-add',
@@ -15,14 +16,18 @@ export class AccountAddComponent implements OnInit {
     pageTitle: string = 'Add A Purchase';
     account: IAccount = {
         _id: '',
-        userId: '',
+        userId: 'asdf',  //default 
         stockId: '',
-        purchaseAmount: '',
+        purchaseAmount: 0,
+        price: 0,
+        shares: 0,
         datetime: ''
     };
-    currentPrice: string;
+    formattedAmount: string;
+    shares: number;
     errorMessage: string;
-    successMessage: string
+    successMessage: string;
+    currencyPipe: CurrencyPipe;
 
     constructor( private route: ActivatedRoute, private router: Router, private accountService: AccountService, private stockService: StockService) {
     }
@@ -56,13 +61,17 @@ export class AccountAddComponent implements OnInit {
     }
 
     public getPrice() {
+        this.successMessage = "";
+        this.errorMessage = "";
         this.stockService.getPrice(this.account.stockId).subscribe( 
             price => {
-                console.log("in price " + this.account.stockId);
-                this.currentPrice=price
+                console.log("in price " + this.account.stockId + " " + this.account.purchaseAmount);
+                this.account.price=Number(price);
+                //rounding to 3 decimals for reasonableness
+                this.account.shares = +(this.account.purchaseAmount/this.account.price).toFixed(3);
             },
             error => {
-                this.currentPrice = "0.00";
+                this.account.price = 0;
                 this.errorMessage = <any>error;
                 this.successMessage = "";
             });
