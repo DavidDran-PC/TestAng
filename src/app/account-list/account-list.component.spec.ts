@@ -12,12 +12,12 @@ describe('AccountListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule, FormsModule],
-      declarations: [ AccountListComponent ],
+      declarations: [AccountListComponent],
       providers: [
         AccountService,
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -26,16 +26,22 @@ describe('AccountListComponent', () => {
     fixture.detectChanges();
   });
 
+  //--------------------------------------------------------------------
+  // Check if created
+  //--------------------------------------------------------------------
   it('should be created', inject([HttpTestingController, AccountService],
-      (httpMock: HttpTestingController, apiService: AccountService) => {
-    expect(component).toBeTruthy();
-  }));
+    (httpMock: HttpTestingController, apiService: AccountService) => {
+      expect(component).toBeTruthy();
+    }));
 
-    it('should render title in a h2 tag with Purchase List', inject([HttpTestingController, AccountService],
-      (httpMock: HttpTestingController, apiService: AccountService) => {
-    const fixture = TestBed.createComponent(AccountListComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Purchase List');
-  }));
+  //--------------------------------------------------------------------
+  // Check if h2 created
+  //--------------------------------------------------------------------
+  it('should render title in a h2 tag with Purchase List', inject([HttpTestingController, AccountService],
+    (httpMock: HttpTestingController, apiService: AccountService) => {
+      const fixture = TestBed.createComponent(AccountListComponent);
+      fixture.detectChanges();
+      const compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector('h2').textContent).toContain('Purchase List');
+    }));
 });

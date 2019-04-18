@@ -5,16 +5,18 @@ import { AccountService } from './account.service';
 describe('AccountService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [
-        HttpClientTestingModule,
-      ],
-      providers: [
-        AccountService,
-      ]
+      HttpClientTestingModule,
+    ],
+    providers: [
+      AccountService,
+    ]
   }));
-
+  //--------------------------------------------------------------------
+  // Check if created
+  //--------------------------------------------------------------------
   it('should be created', (inject([HttpTestingController, AccountService],
     (httpClient: HttpTestingController, apiService: AccountService) => {
-    const service: AccountService = TestBed.get(AccountService);
-    expect(service).toBeTruthy();
-  })));
+      const service: AccountService = TestBed.get(AccountService);
+      expect(service).toBeTruthy();
+    })));
 });

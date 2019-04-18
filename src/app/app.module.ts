@@ -10,6 +10,10 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
 import { AccountAddComponent } from './account-add/account-add.component';
 import { CurrencyPipe } from '@angular/common';
 
+//--------------------------------------------------------------------
+// Modules
+//--------------------------------------------------------------------
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,4 +31,5 @@ import { CurrencyPipe } from '@angular/common';
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

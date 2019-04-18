@@ -29,12 +29,15 @@ label {
 .gobackcontainer {
     padding: 10px
 }
+
 .goback{
     min-width: 80px;
 }
+
 .left{
     float: right
 }
+
 span {
     width:40%;
 }
@@ -42,6 +45,7 @@ span {
 input {
     width:40%;
 }
+
 p { 
     width:40%;
 }

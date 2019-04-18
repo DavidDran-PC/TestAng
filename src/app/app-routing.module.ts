@@ -5,6 +5,9 @@ import { AccountListComponent } from './account-list/account-list.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountAddComponent } from './account-add/account-add.component';
 
+//--------------------------------------------------------------------
+// Routes
+//--------------------------------------------------------------------
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'accountList', component: AccountListComponent },
@@ -13,8 +16,12 @@ const routes: Routes = [
   { path: '**', redirectTo: '' }
 ];
 
+//--------------------------------------------------------------------
+// Modules
+//--------------------------------------------------------------------
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
