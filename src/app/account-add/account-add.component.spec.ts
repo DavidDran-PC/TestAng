@@ -12,9 +12,9 @@ describe('AccountAddComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule, FormsModule],
-      declarations: [ AccountAddComponent ]
+      declarations: [AccountAddComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,15 +23,21 @@ describe('AccountAddComponent', () => {
     fixture.detectChanges();
   });
 
+  //--------------------------------------------------------------------
+  // Check if created
+  //--------------------------------------------------------------------
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
 
+  //--------------------------------------------------------------------
+  // Check if h2 created
+  //--------------------------------------------------------------------
   it('should render title in a h2 tag with Add A Purchase', inject([HttpTestingController, AccountService],
-      (httpMock: HttpTestingController, apiService: AccountService) => {
-    const fixture = TestBed.createComponent(AccountAddComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Add A Purchase');
-  }));
+    (httpMock: HttpTestingController, apiService: AccountService) => {
+      const fixture = TestBed.createComponent(AccountAddComponent);
+      fixture.detectChanges();
+      const compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector('h2').textContent).toContain('Add A Purchase');
+    }));
 });

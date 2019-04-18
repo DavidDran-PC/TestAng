@@ -1,42 +1,40 @@
 <div>
 
-<h2>
-   {{pageTitle}}
-</h2>
-  <div class="success">{{successMessage}}</div>
-  <div class="error">{{errorMessage}}</div>
-<div class="acct-container">
-  <div class="input-container">
-      <div class="input-item">
-          <label>User ID</label>
-          <input [(ngModel)]='account.userId'>
-      </div>
-      <div class="input-item">
-          <label>Stock ID</label>
-          <input (change)="getPrice()" [(ngModel)]='account.stockId'>
-      </div>
-      <div class="input-item">
-          <label>Purchase Amount (USD)</label>
-          <input (change)="getPrice()"  
-          [ngModel]="account.purchaseAmount | currency:'USD':'symbol':'1.2'"
-          [ngModelOptions]="{updateOn:'blur'}"
-          (ngModelChange)="account.purchaseAmount=$event"/>
-      </div>
-      <div class="input-item">
-        <label>Current Stock Price</label>
-        <span>{{this.account.price | currency}}</span>
-      </div>
-      <div class="input-item">
-        <label>Shares</label>
-        <span>{{ this.account.shares}}</span>
-      </div>
-  </div>
-  <div class="buttonContainer">
+    <h2>
+        {{pageTitle}}
+    </h2>
+    <div class="success">{{successMessage}}</div>
+    <div class="error">{{errorMessage}}</div>
+    <div class="acct-container">
+        <div class="input-container">
+            <div class="input-item">
+                <label>User ID</label>
+                <input [(ngModel)]='account.userId'>
+            </div>
+            <div class="input-item">
+                <label>Stock ID</label>
+                <input (change)="getPrice()" [(ngModel)]='account.stockId'>
+            </div>
+            <div class="input-item">
+                <label>Purchase Amount (USD)</label>
+                <input (change)="getPrice()" [ngModel]="account.purchaseAmount | currency:'USD':'symbol':'1.2'" [ngModelOptions]="{updateOn:'blur'}"
+                    (ngModelChange)="account.purchaseAmount=$event" />
+            </div>
+            <div class="input-item">
+                <label>Current Stock Price</label>
+                <span>{{this.account.price | currency}}</span>
+            </div>
+            <div class="input-item">
+                <label>Shares</label>
+                <span>{{ this.account.shares}}</span>
+            </div>
+        </div>
+        <div class="buttonContainer">
             <button class="btn" (click)="addAccount($event)">Add</button>
-            <div class = "gobackcontainer">
+            <div class="gobackcontainer">
                 <button class="btn goback" (click)="goBack()">Back to List</button>
             </div>
         </div>
-  </div>
+    </div>
 
 </div>

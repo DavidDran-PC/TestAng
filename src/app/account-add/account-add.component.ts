@@ -12,6 +12,9 @@ import { CurrencyPipe } from '@angular/common';
     styleUrls: ['./account-add.component.css']
 })
 
+//--------------------------------------------------------------------
+// Class Definition
+//--------------------------------------------------------------------
 export class AccountAddComponent implements OnInit {
     pageTitle: string = 'Add A Purchase';
     account: IAccount = {
@@ -29,16 +32,24 @@ export class AccountAddComponent implements OnInit {
     successMessage: string;
     currencyPipe: CurrencyPipe;
 
-    constructor( private route: ActivatedRoute, private router: Router, private accountService: AccountService, private stockService: StockService) {
+    constructor(private route: ActivatedRoute, private router: Router, private accountService: AccountService, private stockService: StockService) {
     }
+
+    //--------------------------------------------------------------------
+    // Initialization
+    //--------------------------------------------------------------------
     ngOnInit(): void {
-      
+
     }
-        public addAccount(event: Event) {
+
+    //--------------------------------------------------------------------
+    // add a purchase
+    //--------------------------------------------------------------------
+    public addAccount(event: Event) {
         console.log('in addAccount');
         this.successMessage = "";
         this.errorMessage = "";
-        this.stockService.getPrice(this.account.stockId).subscribe( 
+        this.stockService.getPrice(this.account.stockId).subscribe(
             price => {
                 console.log("in price");
                 this.accountService.addAccount(this.account).subscribe(
@@ -48,7 +59,7 @@ export class AccountAddComponent implements OnInit {
                     },
                     error => {
                         console.log("in addAccount error");
-                        this.errorMessage = <any>error; 
+                        this.errorMessage = <any>error;
                     }
                 );
             },
@@ -60,15 +71,19 @@ export class AccountAddComponent implements OnInit {
         );
     }
 
+    //--------------------------------------------------------------------
+    // Get a price -- used for validation of stock id and to 
+    // give user price info
+    //--------------------------------------------------------------------
     public getPrice() {
         this.successMessage = "";
         this.errorMessage = "";
-        this.stockService.getPrice(this.account.stockId).subscribe( 
+        this.stockService.getPrice(this.account.stockId).subscribe(
             price => {
                 console.log("in price " + this.account.stockId + " " + this.account.purchaseAmount);
-                this.account.price=Number(price);
+                this.account.price = Number(price);
                 //rounding to 3 decimals for reasonableness
-                this.account.shares = +(this.account.purchaseAmount/this.account.price).toFixed(3);
+                this.account.shares = +(this.account.purchaseAmount / this.account.price).toFixed(3);
             },
             error => {
                 this.account.price = 0;
@@ -77,6 +92,9 @@ export class AccountAddComponent implements OnInit {
             });
     }
 
+    //--------------------------------------------------------------------
+    // go back to account list
+    //--------------------------------------------------------------------
     goBack(): void {
         this.router.navigateByUrl('/accountList');
     }

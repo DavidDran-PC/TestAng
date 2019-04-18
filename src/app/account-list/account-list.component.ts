@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
   templateUrl: './account-list.component.html',
   styleUrls: ['./account-list.component.css']
 })
+
+//--------------------------------------------------------------------
+// Class Definition
+//--------------------------------------------------------------------
 export class AccountListComponent implements OnInit {
   pageTitle: string = 'Purchase List';
   imageWidth: number = 50;
@@ -24,37 +28,48 @@ export class AccountListComponent implements OnInit {
   constructor(private accountService: AccountService, private stockService: StockService, private router: Router) {
   }
 
+  //--------------------------------------------------------------------
+  // Initialization
+  //--------------------------------------------------------------------
+  ngOnInit(): void {
+    console.log('in ngOnInit');
+    this.refresh("Retrieved Successfully");
+  }
 
+  //--------------------------------------------------------------------
+  // Navigate to Detail page
+  //--------------------------------------------------------------------
   detailClick(e, i): void {
     console.log('it was clicked' + i);
     this.router.navigateByUrl('/accountDetail/' + i);
   }
 
+  //--------------------------------------------------------------------
+  // delete a purchase
+  //--------------------------------------------------------------------
   deleteClick(e, i): void {
     console.log('delete was clicked -- ' + i);
     this.accountService.deleteAccount(i).subscribe(
       account => {
         this.refresh("Deleted Successfully");
       },
-      error => {this.errorMessage = <any>error; this.successMessage = "";}
+      error => { this.errorMessage = <any>error; this.successMessage = ""; }
     );
   }
-  ngOnInit(): void {
-    console.log('in ngOnInit');
-    this.refresh("Retrieved Successfully");
-  }
 
+  //--------------------------------------------------------------------
+  // refresh the list
+  //--------------------------------------------------------------------
   refresh(message): void {
     console.log('in refresh');
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };
     var query = "";
-    if(this.filtervalue!="All"&&this.filtervalue!="")
-    {
+    if (this.filtervalue != "All" && this.filtervalue != "") {
       query = "/?stockId=" + this.filtervalue;
-    } 
-    
+    }
+
     this.accountService.getAccounts(query).subscribe(
       accounts => {
         if (!this.isEmpty(accounts)) {
@@ -70,19 +85,28 @@ export class AccountListComponent implements OnInit {
           console.log(this.errorMessage);
         }
       },
-      error => {this.errorMessage = <any>error; this.successMessage = "";}
+      error => { this.errorMessage = <any>error; this.successMessage = ""; }
     );
     this.filteredAccounts = this.accounts;
   }
 
-  goBack(): void {
-    this.router.navigateByUrl('/');
-  }
-
+  //--------------------------------------------------------------------
+  // Go to add page
+  //--------------------------------------------------------------------
   goToAdd(): void {
     this.router.navigateByUrl('/accountAdd');
   }
 
+  //--------------------------------------------------------------------
+  // Go back to main page
+  //--------------------------------------------------------------------
+  goBack(): void {
+    this.router.navigateByUrl('/');
+  }
+
+  //--------------------------------------------------------------------
+  // check if object is empty
+  //--------------------------------------------------------------------
   isEmpty(obj): boolean {
     for (var key in obj) {
       if (obj.hasOwnProperty(key))

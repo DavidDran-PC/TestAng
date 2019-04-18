@@ -5,6 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+//--------------------------------------------------------------------
+// Class definition
+//--------------------------------------------------------------------
 export class AppComponent {
   title = 'testApp';
 }
